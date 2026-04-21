@@ -1,0 +1,20 @@
+
+注意！！！！！！
+使用之前，在微信中打开雨天小助手小程序，点击里面的小程序跳转，让这个小程序处于小程序跳转页面，因为下面的get_wxapkg.py就是基于雨天小助手的小程序跳转功能，否则无法成功运行。
+
+
+
+get_wxapkg.py用于通过小程序APPID获取未解密的小程序.wxapkg文件。
+	get_wxapkg.py的修改：
+	1、在get_wxapkg.py中修改APPID列表，即将TARGET_APPIDS修改为自己希望进行反编译的小程序的APPID列表。可以把小程序的APPID都发给AI，让AI生成这个列表。
+	2、在get_wxapkg.py中修改微信包存放根目录，即将BASE_PATH修改为自己的小程序.wxapkg文件的文件夹所在目录，一般是C:\Users\用户名\AppData\Roaming\Tencent\xwechat\radium\Applet\packages
+
+
+killwxapkg.py用于调动KillWxapkg工具对小程序.wxapkg文件进行解密，从而得到对应的.js文件。
+	killwxapkg.py的修改：
+	1、需要在killwxapkg.py中指定killwxapkg.py所在的绝对路径，即将EXE_PATH修改为自己的KillWxapkg工具的绝对路径。KillWxapkg工具下载：https://github.com/Ackites/KillWxapkg
+	2、然后修改对.wxapkg解密后，解密文件的输出目录，即将BASE_OUT_DIR修改为解密后文件的保存目录。
+
+然后就可以直接双击---联动py文件.bat----进行上述两个脚本的运行。首先会运行get_wxapkg.py获取小程序.wxapkg文件，然后运行killwxapkg.py对小程序.wxapkg进行解密并输出。
+
+
